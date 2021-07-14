@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WebApplication3.Models.Post>
+
+@{
+    ViewBag.Title = "GetAllRequests";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>GetAllRequests</h2>
+
+    @Html.AntiForgeryToken()
+    <table class="table">
+        <tr>
+ 
+            <th>
+                @Html.DisplayNameFor(model => model.TripTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripDestenation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripDetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostDate)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+
+            <img src="~/upload/post_images/@item.TripImage" style="width:70px;height:70px;" />
+
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.TripTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TripDestenation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TripDetails)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TripDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostDate)
+        </td>
+
+        <td>
+     
+            <div class="row">
+                <div class="col-6" style="margin-left:-30px">
+                    <a href="/Admin/accept/@item.Id" class="btn btn-info" style="text-decoration:none ;color:white">accept</a>
+                </div>
+                <div class="col-6" style="margin-left:-30px">
+                    <a href="/Admin/decline/@item.Id" class="btn  btn-warning">decline</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+
+        }
+    </table>
+
+
+
+

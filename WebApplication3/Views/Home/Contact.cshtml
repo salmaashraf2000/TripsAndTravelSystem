@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebApplication3.Models.Post>
+@using WebApplication3.Models
+@{
+    ViewBag.Title = "My Page";
+    Layout = "~/Views/Shared/Traveller_Layout.cshtml";
+}
+
+<!-- Trip Posts Cards-->
+<div class="card-group">
+    @foreach (var item in Model)
+    {
+        <div class="card col-sm">
+            <img src="~/upload/Post_images/@item.TripImage" class="card-img-top" alt="..." width="350" height="250">
+            <div class="card-body">
+                <h5 class="card-title">@item.User.FirstName @item.User.LastName</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">@</li>
+                <li class="list-group-item">
+                    <p class="card-text">Trip Details</p>
+                </li>
+                <li class="list-group-item">Post Date</li>
+                <li class="list-group-item">Trip Date</li>
+                <li class="list-group-item">Trip Distination</li>
+            </ul>
+            <div class="card-body">
+                <i class="far fa-thumbs-up"></i>
+                <a href="#" class="card-link">Like</a>
+                <i class="far fa-thumbs-down posticons"></i>
+                <a href="#" class="card-link">Dislike</a>
+                <i class="fas fa-bookmark posticons"></i>
+                <a href="" class="card-link">Save Post</a>
+                <form>
+                    <div class="form-group">
+                        <i class="fas fa-comments"></i>
+                        <label for="exampleFormControlTextarea1">Ask Question?</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary ask">Ask</button>
+                </form>
+            </div>
+        </div>
+    </div>

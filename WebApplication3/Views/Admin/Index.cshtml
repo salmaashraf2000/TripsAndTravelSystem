@@ -1,0 +1,80 @@
+﻿@model IEnumerable<WebApplication3.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>All Users</h2>
+
+<div class="container">
+    <div class="row usersTable">
+        <div class="col">
+            <h2 class="text-center">Traveler Info</h2>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UserType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LastName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Photo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                        </th>
+
+
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+
+                                @if (item.Photo != null)
+                                {
+                                    <img src="~/upload/user_images/@item.Photo" style="width:70px;height:70px;margin-top:-8px" />
+                                }
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                            </td>
+
+                            <td>
+                                <a href="/Admin/DeleteUser/@item.Id" class="btn  btn-warning">Delete User</a>
+
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            <a href="/Admin/AddUser" class="btn  btn-primary">Add new User</a>
+
+        </div>
+    </div>
+</div>

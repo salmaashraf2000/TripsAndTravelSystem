@@ -1,0 +1,195 @@
+
+/************************************COMMON NAVBAR*************************************/
+
+/* navbar */
+
+.navbar-brand{
+    font-family: cursive;
+}
+
+.nav-item{
+    padding-left: 30px;
+}
+
+/* navbar brand */
+.navbar-brand{
+    color:#40A8DD !important;
+}
+
+/* navbar link */
+.nav-link{
+    color: white  !important ;
+}
+
+/*******************************COMMON RESPONSIVE STYLE FOR TABLE*******************/
+
+.table-responsive {
+    overflow-x:auto;
+  }
+
+/************************************USERS PAGE******************************/
+.usersTable{
+   margin-top: 50px;
+}
+
+
+.usersTable h2{
+    margin-bottom: 25px;
+    font-family: cursive;
+    color:#40A8DD;
+}
+
+
+.usersbtn{
+    margin-top: 25px;
+    background-color:#40A8DD;
+}
+
+
+.addUserRow h2{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-family: cursive;
+    color:#40A8DD;
+}
+
+.btnSubmit{
+    margin-top: 25px;
+    width: 200px;
+    background-color:#40A8DD;
+
+}
+
+
+
+
+
+/************************************POSTS PAGE******************************/
+
+
+.postsTable{
+    margin-top: 50px;
+ }
+ 
+ 
+ .postsTable h2{
+     margin-bottom: 25px;
+     font-family: cursive;
+     color:#40A8DD;
+ }
+ 
+
+.Postsbtn{
+
+    margin: 20px;
+    margin-top: 25px;
+    background-color:#40A8DD;
+
+}
+
+
+
+.addPostRow h2{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-family: cursive;
+    color:#40A8DD;
+}
+
+
+
+/**************************************POSTS REQUESTS PAGE*******************/
+
+.acceptbtn{
+
+    margin: 20px;
+    margin-top: 50px;
+    margin-bottom: 150px;
+    background-color:#40A8DD;
+
+
+}
+
+
+
+
+
+/*********************************PROFILE PAGE****************************/
+
+.infoTable{
+
+    margin-top: 50px;
+    margin-bottom:300px;
+
+
+}
+
+.infoTable h2{
+    margin-bottom: 25px;
+    font-family: cursive;
+    color:#40A8DD;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*************************************COMMON FOOTER****************************/
+
+
+
+/*start footer*/
+.footer{
+    margin-top: 50px;
+    color: white;
+}
+
+/*fontawesome at the footer*/
+.fontawesome1,.fontawesome2,.fontawesome3{
+    font-size: 40px;
+    color:#40A8DD;
+    padding: 7px;
+}
+/*hover over fontawesome*/
+a:hover{
+    color:#b8b8b8;
+}
+
+/*column 1 at the footer*/
+.column1{
+    margin-top: 50px;
+}
+/*header in column 1 at the footer*/
+.column1 h2{
+    font-family: cursive;
+    color:#40A8DD;
+    font-style: italic;
+    font-size: 40px;
+}
+
+/*column 2 at the footer*/
+.column2{
+    margin-top: 60px;
+}
+
+/*move pharagraph in column 2 at the footer*/
+.column2 p{
+    margin-top: 40px;
+}
+
+
+.footerimg{
+    height: 120px;
+    width: 100px;
+}
+ /*end footer*/
+
+
+

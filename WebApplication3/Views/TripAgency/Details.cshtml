@@ -1,0 +1,148 @@
+﻿@model WebApplication3.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Agency_Layout.cshtml";
+}
+<div style="margin-right:300px"></div>
+<h2>Details</h2>
+
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TripTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TripTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TripDestenation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TripDestenation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TripDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TripDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TripImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TripImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TripDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TripDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RankLike)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RankLike)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RankDislike)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RankDislike)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Approved)
+        </dt>
+
+        <dd>
+            @if (Model.Approved)
+            {
+                <p>1</p>
+            }
+            else
+            {
+                <p>0</p>
+            }
+        </dd>
+
+    </dl>
+    @foreach (var item in Model.comments)
+    {
+        <p> @item.User.FirstName  @item.User.LastName</p>
+        <br />
+        @Html.DisplayFor(modelItem => item.CommentDescription)
+
+        if (item.Answer != null)
+        {
+            <br />
+            @Html.DisplayFor(modelItem => item.Answer)
+        }
+
+        using (Html.BeginForm("Answer", "TripAgency", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => item.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="Answer" />
+
+                    </div>
+                </div>
+                <input type="text" style="display:none" value="@Model.Id" name="PostId" />
+                <input type="text" style="display:none" value="@item.Id" name="CommentId" />
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+</div>

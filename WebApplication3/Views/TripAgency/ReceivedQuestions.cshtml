@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebApplication3.Models.Comment>
+
+@{
+    ViewBag.Title = "ReceivedQuestions";
+    Layout = "~/Views/Shared/Agency_Layout.cshtml";
+}
+
+
+
+<div class="content">
+
+    <!-- start Posts table -->
+
+    <div class="container">
+        <div class="row postsTable">
+            <div class="col">
+                <h3 class="text-center"> Received Questions</h3>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="thead-light">
+
+                            <tr>
+                                <th scope="col">Traveller Name</th>
+                                <th scope="col">Trip Post Title</th>
+                                <th scope="col">Question</th>
+                                <th scope="col">  Write the answer</th> <!-- State: answerd/ or not-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.User.FirstName)
+                                        @Html.DisplayFor(modelItem => item.User.LastName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.post.TripTitle)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CommentDescription)
+                                    </td>
+                                    <td>
+                                        <!-- Start Answer Form-->
+                                        @using (Html.BeginForm("Answer", "TripAgency", FormMethod.Post))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <div class="row">
+                                                <input type="text" style="display:none" value="@item.Id" name="CommentId" />
+                                                <div class="form-group col-9">
+                                                    <input type="text" class="form-control" name="Answer" value="@item.Answer" />
+
+                                                </div>
+                                                <div class="col-3">
+                                                    <button type="submit" class="btn btn-primary CreatePost">Answer</button>
+                                                </div>
+                                            </div>
+                                        }
+                                        <!-- End Answer Form-->
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

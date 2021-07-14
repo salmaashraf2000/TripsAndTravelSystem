@@ -1,0 +1,210 @@
+/************************************COMMON NAVBAR*************************************/
+
+/* navbar */
+
+.navbar-brand{
+    font-family: cursive;
+}
+
+.nav-item{
+    padding-left: 30px;
+}
+
+/* navbar brand */
+.navbar-brand{
+    color:#40A8DD !important;
+}
+
+/* navbar link */
+.nav-link{
+    color: white  !important ;
+}
+
+/*******************************COMMON RESPONSIVE STYLE FOR TABLE*******************/
+
+.table-responsive {
+  overflow-x:auto;
+}
+
+
+
+/**************************SIDE BAR********************/
+
+.sidebar {
+  margin-top:-20px;
+  padding-top: 20px;
+  width: 200px;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 16px;
+  margin-top: 25px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #40A8DD;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #b8b8b8;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  /*padding-top: 100px;*/
+  margin-top: 50px;
+}
+
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+/*****************************MY POSTS PAGE*******************************/
+
+
+.postsTable{
+  margin-top: 20px;
+}
+
+
+.postsTable h2{
+   margin-bottom: 25px;
+   font-family: cursive;
+   color:#40A8DD;
+}
+
+
+.Postsbtn{
+
+    background-color: #40A8DD;
+}
+
+
+.btnSubmit{
+  margin-top: 25px;
+  width: 200px;
+  background-color:#40A8DD;
+
+}
+
+
+/*************************PROFILE PAGE*********************/
+
+
+.infoForm{
+  margin-top: 20px;
+}
+
+
+.infoForm h2{
+   margin-bottom: 25px;
+   font-family: cursive;
+   color:#40A8DD;
+}
+
+
+.infoForm input{
+  border: none;
+  border-bottom: 0.5px solid;
+}
+
+.passwordtitle{
+  margin-top: 70px;
+}
+
+
+
+
+/******************************** Create New Post Page ************************************/
+  .CreatePost{ /*button*/
+    color: #fff;
+    background-color: #40A8DD;
+}
+
+
+/*****************************RESEIVED QUESTIONS PAGE***********************/
+.AnswerQ{
+  margin-bottom: 50px;
+}
+
+
+
+
+
+
+
+/*************************************COMMON FOOTER****************************/
+
+
+
+/*start footer*/
+.footer{
+    margin-top: 50px;
+    color: white;
+}
+
+/*fontawesome at the footer*/
+.fontawesome1,.fontawesome2,.fontawesome3{
+    font-size: 40px;
+    color:#40A8DD;
+    padding: 7px;
+}
+/*hover over fontawesome*/
+a:hover{
+    color:#b8b8b8;
+}
+
+/*column 1 at the footer*/
+.column1{
+    margin-top: 50px;
+}
+/*header in column 1 at the footer*/
+.column1 h2{
+    font-family: cursive;
+    color:#40A8DD;
+    font-style: italic;
+    font-size: 40px;
+}
+
+/*column 2 at the footer*/
+.column2{
+    margin-top: 60px;
+}
+
+/*move pharagraph in column 2 at the footer*/
+.column2 p{
+    margin-top: 40px;
+}
+
+
+.footerimg{
+    height: 120px;
+    width: 100px;
+}
+ /*end footer*/
+
+
+

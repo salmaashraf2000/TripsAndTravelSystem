@@ -1,0 +1,87 @@
+﻿@model WebApplication3.Models.ProfileUserEdite
+@{
+    ViewBag.Title = "profile";
+    Layout = "~/Views/Shared/Agency_Layout.cshtml";
+}
+
+<div class="content">
+
+    <!-- start Info Form -->
+
+    <div class="container">
+        <div class="row infoForm">
+            <div class="col">
+                <h2 class="text-center">*My Info*</h2>
+                @using (Html.BeginForm("Profile", "TripAgency", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <hr />
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.FirstName, new { @class = "col-md-4 control-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.LastName, new { @class = "col-md-4 control-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-4 control-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
+                            <div class="col-md-8">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label" })
+                            <div class="col-md-8">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.Photo, new { @class = "col-md-4 control-label" })
+                            <div class="col-md-8">
+                                <img src="~/upload/user_images/@Model.Photo" style="width:70px;height:70px;" />
+                                <input type="file" name="UserPhoto"   />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-md-offset-2 col-md-10" style="margin-top:70px;">
+                                <div class="text-center">
+                                    <input type="submit" class="btn btnSubmit" value="Update" />
+                                   </div>
+                                </div>
+                            </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        </div>
+</div>

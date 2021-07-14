@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebApplication3.Models.Post>
+
+@{
+    ViewBag.Title = "SearchIndex";
+    Layout = "~/Views/Shared/Traveller_Layout.cshtml";
+}
+<div class="container" style="margin-top:50px;">
+    @if(ViewBag.NotResult !=null){
+    <h1 class="card-body">@ViewBag.NotResult </h1>
+    }
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <!-- Trip Posts Cards-->
+            <div class="card col-sm-6">
+                <img src="~/upload/Post_images/@item.TripImage" class="card-img-top" alt="..." width="350" height="250">
+                <div class="card-body">
+                    <h5 class="card-title">Agency Name : @item.User.FirstName @item.User.LastName </h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Trip Title : @item.TripTitle</li>
+                    <li class="list-group-item">
+                        <p class="card-text">Trip Details : @item.TripDetails</p>
+                    </li>
+                    <li class="list-group-item">Post Date : @item.PostDate</li>
+                    <li class="list-group-item">Trip Date : @item.TripDate</li>
+                    <li class="list-group-item">Trip Distination : @item.TripDestenation</li>
+                </ul>
+                @if (Request.IsAuthenticated)
+                {
+                    <div class="card-body">
+                        <i class="far fa-thumbs-up"></i>
+                        <a href="@Url.Action("AddLikedPosts", "Traveler", new { id = item.Id })" class="card-link">Like : @item.RankLike</a>
+                        <i class="far fa-thumbs-down posticons"></i>
+                        <a href="@Url.Action("AddDislikedPosts", "Traveler", new { id = item.Id })" class="card-link">Dislike : @item.RankDislike</a>
+                        <i class="fas fa-bookmark posticons"></i>
+                        <a href="@Url.Action("AddToSavePosts", "Traveler", new { id = item.Id })" class="btn-sm btn-danger">Save Post</a>
+                        <form>
+                            <div class="form-group">
+                                <i class="fas fa-comments"></i>
+                                <label for="exampleFormControlTextarea1">Ask Question?</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary ask">Ask</button>
+                        </form>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+
+
+</div>
+
+

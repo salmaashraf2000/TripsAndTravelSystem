@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="~/Content/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/css/AgencyStyle.css" />
+
+
+</head>
+<body>
+
+    <!-- start navbar -->
+    <nav class="navbar   navbar-expand-lg  bg-dark navbar-dark">
+        <div class="container">
+            <!-- Brand -->
+            <span class=" navbar-brand">TRAVEL</span>
+            <!-- collapse Button -->
+            <button class=" navbar navbar-toggler" data-toggle="collapse" data-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav  ml-auto">
+                    <!--<li class="nav-item"><a class="nav-link" href="~/Views/Admin/AdminProfile.cshtml">ProFile</a></li>-->
+                    <!-- just try to link them with html-->
+                    <li class="nav-item"><a>@Html.ActionLink("Profile", "Profile", "Admin", null, new { @class = "nav-link" })</a></li>
+                    <li class="nav-item"><a>@Html.ActionLink("Users’page", "Index", "Admin", null, new { @class = "nav-link" })</a></li>
+                    <li class="nav-item"><a>@Html.ActionLink("Posts page", "GetPosts", "Admin", null, new { @class = "nav-link" })</a></li>
+                    <li class="nav-item"><a href="/Admin/GetAllRequests" class="nav-link">Posts Requests</a></li>
+                    <li class="nav-item"><a>@Html.ActionLink("Logout", "logoff", "Account", null, new { @class = "nav-link" })</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- end navbar -->
+    <div style=" min-height:400px;">
+        @RenderBody()
+        </div>
+        <!-- start footer -->
+        <div class="footer bg-dark">
+            <div class="container bg-dark">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 column1">
+                        <h2>Travel</h2>
+                        <p>
+                            Address: 60-46 Road 11378 New Yourk<br>
+                            Phone:+5625454255<br>Email: hello@noname2020
+                        </p>
+                        <a href="https://www.facebook.com/" class="fontawesome1"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/" class="fontawesome2"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/" class="fontawesome3"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 column2">
+                        <img src="~/images/site/1.jpg" class="rounded-circle footerimg" alt="">
+                        <img src="~/images/site/2.jpg" class="rounded-circle footerimg" alt="">
+                        <img src="~/images/site/3.jpg" class="rounded-circle footerimg" alt="">
+                        <img src="~/images/site/4.jpg" class="rounded-circle footerimg" alt="">
+                        <p>Copyright&copy;2021 All rights reserved. This Is Made By Travel Team.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- end footer -->
+        @Scripts.Render("~/Content/js/bootstrap.min.js")
+        @Scripts.Render("~/Content/js/jquery.min.js")
+</body>
+</html>

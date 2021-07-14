@@ -1,0 +1,107 @@
+﻿@model IEnumerable<WebApplication3.Models.Post>
+
+@{
+    ViewBag.Title = "GetPosts";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+
+}
+  
+
+        <h2 class="text-center">All Post</h2>
+
+
+     
+            <table class="table">
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.TripTitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TripDestenation)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TripDetails)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TripImage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TripDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PostDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RankLike)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RankDislike)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User.LastName)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TripTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TripDestenation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TripDetails)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TripImage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TripDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PostDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RankLike)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RankDislike)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.LastName)
+                        </td>
+
+                        <td>
+                            <div class="row">
+                                <div class="col-6" style="margin-left:-30px">
+                                    <a href="/Admin/EditPost/@item.Id" class="btn btn-info" style="text-decoration:none ;color:white">Edit Post</a>
+                                </div>
+                                <div class="col-6" style="margin-left:-30px">
+                                 <a href="/Admin/DeletePost/@item.Id" class="btn  btn-warning">Delete Post</a>
+                                </div>
+                            </div>
+                            
+
+                            
+                        </td>
+                    </tr>
+
+                }
+            </table>

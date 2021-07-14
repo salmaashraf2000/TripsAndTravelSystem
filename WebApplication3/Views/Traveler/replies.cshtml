@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Replies";
+    Layout = "~/Views/Shared/Traveller_Layout.cshtml";
+}
+
+@using WebApplication3.Models;
+@model List<Comment>
+
+
+@foreach (var item in Model)
+{
+        <!-- Trip Posts Cards-->
+    <div class="card col-sm" style="margin-top:50px">
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Comment : @item.CommentDescription</li>
+            @if (item.Answer != null)
+            {
+
+                <li class="list-group-item">Reply : @item.Answer</li>
+            }
+            else
+            {
+        <li class="list-group-item">not Answered</li>
+            }
+        </ul>
+        
+    </div>
+}
+

@@ -1,0 +1,159 @@
+﻿@using Microsoft.AspNet.Identity
+    <!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="~/Content/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/css/TravellerStyle.css" />
+</head>
+<body>
+    <!-- start navbar -->
+    @if (Request.IsAuthenticated)
+    {
+        <nav class="navbar   navbar-expand-lg  bg-dark navbar-dark">
+            <div class="container">
+                <!-- Brand -->
+                <span class=" navbar-brand">TRAVEL</span>
+                <!-- collapse Button -->
+                <button class=" navbar navbar-toggler" data-toggle="collapse" data-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <!-- Filter label-->
+                <form action="/Traveler/SearchIndex" method="post">
+                    <div class="row">
+
+                        <div class="col-4">
+                            <input class="form-control" id="anythingSearch" name="agency" type="text" placeholder="Search by agency ">
+                          </div>
+                        <div class="col-4">
+                          
+                            <input class="form-control" id="anythingSearch" name="price" type="search" placeholder="Search by price ">
+                        </div>
+                        <div class="col-2">
+
+                            <input type="date" id="birthday" name="date" style="width:100px;  " class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <input type="submit" class="btn btn-primary" value="search"/>
+                        </div>
+                    </div>
+           
+             
+               </form>
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav  ml-auto">
+                        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="/Traveler/SavePosts" class="nav-link">Saved Posts</a></li>
+                        <li class="nav-item">
+                            <a href="/Account/LogOff" class="nav-link">Logout</a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- end navbar -->
+    }
+    else
+    {
+        <!-- start navbar -->
+        <nav class="navbar   navbar-expand-lg  bg-dark navbar-dark">
+            <div class="container">
+                <!-- Brand -->
+                <span class=" navbar-brand">TRAVEL</span>
+                <!-- collapse Button -->
+                <button class=" navbar navbar-toggler" data-toggle="collapse" data-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <!-- Filter label-->
+                <form action="/Traveler/SearchIndex" method="post">
+                    <div class="row">
+
+                        <div class="col-4">
+                            <input class="form-control"  name="agency" type="text" placeholder="Search by agency ">
+                        </div>
+                        <div class="col-4">
+
+                            <input class="form-control"  name="price" type="search" placeholder="Search by price ">
+                        </div>
+                        <div class="col-2">
+
+                            <input type="date"  name="date" style="width:100px;  " class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <input type="submit" class="btn btn-primary" value="search" />
+                        </div>
+                    </div>
+
+
+                </form>
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav  ml-auto">
+                        <li class="nav-item">
+                            <a href="" class="nav-link btn btn-default btn-rounded" data-toggle="modal"
+                               data-target="#modalRegisterForm">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link btn btn-default btn-rounded Login" data-toggle="modal"
+                               data-target="#modalLoginForm">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- end navbar -->
+    }
+
+<div style="min-height:400px;">
+    @RenderBody()
+</div>
+  
+    <!-- start footer -->
+    <div class="footer bg-dark">
+        <div class="container bg-dark">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 column1">
+                    <h2>Travel</h2>
+                    <p>
+                        Address: 60-46 Road 11378 New Yourk<br>
+                        Phone:+5625454255<br>Email: hello@noname2020
+                    </p>
+                    <a href="https://www.facebook.com/" class="fontawesome1"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/" class="fontawesome2"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/" class="fontawesome3"><i class="fab fa-instagram"></i></a>
+                </div>
+
+                <div class="col-lg-6 col-md-12 column2">
+                    <<img src="~/images/site/1.jpg" class="rounded-circle footerimg" alt="">
+                    <img src="~/images/site/2.jpg" class="rounded-circle footerimg" alt="">
+                    <img src="~/images/site/3.jpg" class="rounded-circle footerimg" alt="">
+                    <img src="~/images/site/4.jpg" class="rounded-circle footerimg" alt="">
+                    <p>Copyright&copy;2021 All rights reserved. This Is Made By Travel Team.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end footer -->
+
+    @Scripts.Render("~/Scripts/jquery.min.js")
+    @Scripts.Render("~/Scripts/bootstrap.min.js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/jquery-3.4.1.js")
+    @Scripts.Render("~/Scripts/bootstrap.js")
+    @Scripts.Render("~/Scripts/jquery.validate.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.js")
+
+</body>
+</html>
